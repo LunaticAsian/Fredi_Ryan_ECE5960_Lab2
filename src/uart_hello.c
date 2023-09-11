@@ -1,5 +1,7 @@
 #include "uart_hello.h"
 
+
+//need to fix file path for uart hello include header file
 void echo_uppercase(const struct device *dev)
 {
     char byte, up;

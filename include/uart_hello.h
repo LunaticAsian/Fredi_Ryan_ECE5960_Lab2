@@ -3,8 +3,8 @@
 #ifdef TESTING_ENV
 struct device {};
 
-void test_uart_out();
-void test_uart_in();
+int test_uart_out();
+int test_uart_in();
 
 #else
 #include <drivers/uart.h>

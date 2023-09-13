@@ -4,11 +4,10 @@ void echo_uppercase(const struct device *dev)
 {
     char byte, up;
 
-    do
-    {
-#ifdef TESTING_ENV
-        if (test_uart_in() != 0)
-        {
+    do {
+        #ifdef TESTING_ENV
+            
+            if (test_uart_in() != 0) {
             continue;
         }
 #else
@@ -16,18 +15,19 @@ void echo_uppercase(const struct device *dev)
         {
             continue;
         }
-#endif
-
+        #endif
+        
         if (byte <= 'z' && byte >= 'a')
             up = byte - 'a' + 'A';
 
         else
             up = byte;
+            
+        #ifdef TESTING_ENV
+            test_uart_out();
+        #else
+            uart_poll_out(dev, up);
 
-#ifdef TESTING_ENV
-        test_uart_out();
-#else
-        uart_poll_out(dev, up);
-#endif
-    } while (byte != '\n');
+        #endif
+    } while(byte != '\n');
 }

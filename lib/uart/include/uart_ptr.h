@@ -3,12 +3,13 @@
 #ifdef TESTING_ENV
 struct device {};
 
-*uart_ptr_in();
-*uart_ptr_out();
-
 #else
 #include <drivers/uart.h>
 
 #endif
 
-void echo_uppercase_ptr(const struct device *dev);
+void echo_uppercase_ptr(const struct device *dev,
+                        int (*uart_ptr_in)(const struct device *, unsigned char *),
+                        void (*uart_ptr_out)(const struct device *, unsigned char *));
+
+                        

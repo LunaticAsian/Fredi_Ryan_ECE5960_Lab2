@@ -9,7 +9,7 @@ void echo_uppercase(const struct device *dev)
     do {
         #ifdef TESTING_ENV
             
-            if (test_uart_in() != 0) {
+            if (test_uart_in(&byte) != 0) {
             continue;
         }
         #else
@@ -25,7 +25,7 @@ void echo_uppercase(const struct device *dev)
             up = byte;
             
         #ifdef TESTING_ENV
-            test_uart_out();
+            test_uart_out(byte);
         #else
             uart_poll_out(dev, up);
 

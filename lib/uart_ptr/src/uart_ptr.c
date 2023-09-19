@@ -14,12 +14,10 @@ void echo_uppercase_ptr(const struct device *dev,
 
         if (byte <= 'z' && byte >= 'a')
             up = byte - 'a' + 'A';
-
         else
             up = byte;
 
         (*uart_ptr_out)(dev,up);
     }
     while(byte != '\n');
-
 }

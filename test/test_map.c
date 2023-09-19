@@ -1,6 +1,5 @@
 #include "map.h"
 
-
 int add5(int x)
 {
     return x + 5;
@@ -12,4 +11,3 @@ void example(void)
     int output[5];
     map(&input, &output, 4, add5);
 }
-

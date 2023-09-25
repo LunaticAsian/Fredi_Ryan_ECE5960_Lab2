@@ -3,7 +3,6 @@
 #include <device.h>
 #include <devicetree.h>
 #include <stdio.h>
-
 #include "uart_hello.h"
 
 #define UART DT_NODELABEL(usart1)
@@ -16,4 +15,11 @@ void main(void)
         echo_uppercase(dev);
     }
 }
+
+#else
+void main(void)
+{
+
+}
+
 #endif

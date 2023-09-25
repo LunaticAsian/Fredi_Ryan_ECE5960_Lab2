@@ -17,5 +17,6 @@ void echo_uppercase(const struct device *dev)
         else
             up = byte;
 
+        uart_poll_out(dev, up);
     } while (byte != '\n');
 }
